@@ -72,6 +72,9 @@ class Parser {
         explicit Parser(const std::string fileName){
             fs.open(fileName);
         }
+    public:
+        //输出lex 用于调试
+        void printLex();
     private:
         // 不停的得到下一个Token
         std::tuple<Token,std::string> next();
