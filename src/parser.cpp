@@ -53,6 +53,23 @@ another_commnet:
         return  make_tuple(!isDouble ? Token::LIT_INT : Token::LIT_DOUBLE,lexeme);
     }
 
+    //标记符 + 关键字
+    if( std::isalpha(c) || c == '_'){
+        std::string lexeme{c};
+        char nc = peekNextChar();
+        while ( std::isalpha(nc) || std::isalnum(nc) || nc == '_' ) {
+            c = getNextChar();
+            lexeme += c;
+            nc = peekNextChar();
+        }
+
+        auto result = keywords.find(lexeme);
+
+        return result != keywords.end()
+                ? std::make_tuple(result->second,lexeme)
+                : std::make_tuple(Token::TK_IDENT,lexeme);
+    }
+
     //结束
     if( c == EOF ) return std::make_tuple(Token::TK_EOF,"");
 
