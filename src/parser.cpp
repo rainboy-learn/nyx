@@ -35,6 +35,24 @@ another_commnet:
             goto another_commnet;
     }
 
+    //整数 小数 字面值
+    if( c>='0' && c <='9' ) {
+        std::string lexeme{c};
+        bool isDouble = 0;
+        char nc = peekNextChar();
+
+        while ( (nc >='0' && nc <='9') || (!isDouble && nc =='.')) {
+            if( nc == '.') 
+                isDouble = 1;
+
+            c = getNextChar();
+            nc = peekNextChar();
+            lexeme += c;
+        }
+
+        return  make_tuple(!isDouble ? Token::LIT_INT : Token::LIT_DOUBLE,lexeme);
+    }
+
     //结束
     if( c == EOF ) return std::make_tuple(Token::TK_EOF,"");
 
@@ -44,8 +62,8 @@ another_commnet:
 void Parser::printLex(){
     while (1) {
       auto [token,name] = next();
-      std::cout << "Token : " << magic_enum::enum_name(token)<< std::endl;
-      std::cout << "    Name : "<< name << std::endl << std::endl;
+      std::cout << "Token : " << magic_enum::enum_name(token)<< "\t\t\t";
+      std::cout << "Name : "<< name << std::endl;
 
       if( token == Token::TK_EOF) break;
     }
