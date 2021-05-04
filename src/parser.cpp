@@ -74,7 +74,7 @@ another_commnet:
         std::string lexeme;
         lexeme = getNextChar();
         if( peekNextChar() !='\''){
-
+            LOG("SynaxError: 字符应该以\'结束！");
         }
 
     }
