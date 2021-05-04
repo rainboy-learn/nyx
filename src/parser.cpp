@@ -1,7 +1,9 @@
-#include "parser.h"
 #include <iostream>
-#include "utils.hpp"
 #include <tuple>
+
+#include "parser.h"
+#include "utils.hpp"
+#include "./lib/magic_enum.hpp"
 
 
 std::tuple<Token,std::string> Parser::next(){
@@ -27,6 +29,7 @@ void Parser::printLex(){
           std::cout << "EOF" <<std::endl;
           return;
       }
-      std::cout << "Token : " << name << std::endl;
+      std::cout << "Token : " << magic_enum::enum_name(token)<< std::endl;
+      std::cout << "    Name : "<< name << std::endl << std::endl;
     }
 }
