@@ -70,6 +70,15 @@ another_commnet:
                 : std::make_tuple(Token::TK_IDENT,lexeme);
     }
 
+    if( c == '\''){
+        std::string lexeme;
+        lexeme = getNextChar();
+        if( peekNextChar() !='\''){
+
+        }
+
+    }
+
     //结束
     if( c == EOF ) return std::make_tuple(Token::TK_EOF,"");
 
