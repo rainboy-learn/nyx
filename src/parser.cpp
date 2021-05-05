@@ -162,11 +162,13 @@ another_commnet:
     return std::make_tuple(Token::INVALID,"invalid_token");
 }
 
-void Parser::printLex(){
+void Parser::printLex(const std::string & fileName){
+    Parser p(fileName);
     while (1) {
-      auto [token,name] = next();
-      std::cout << "Token : " << magic_enum::enum_name(token)<< "\t\t\t";
-      std::cout << "Name : "<< name << std::endl;
+      auto [token,name] = p.next();
+      //std::cout << "[Token : " << magic_enum::enum_name(token)<< " <===> ";
+      //std::cout << "Name : "<< name << "]"<<std::endl;
+      std::cout <<"[" <<magic_enum::enum_name(token) << "," << name <<"]" << std::endl;
 
       if( token == Token::TK_EOF) break;
     }

@@ -1,8 +1,8 @@
 #include "parser.h"
 
-Parser parser("../test/helloworld.nyx");
+//Parser parser("../test/helloworld.nyx");
 
 int main(){
-    parser.printLex();
+    Parser::printLex("../test/helloworld.nyx");
     return 0;
 }

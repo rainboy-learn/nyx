@@ -93,7 +93,7 @@ class Parser {
         }
     public:
         //输出lex 用于调试
-        void printLex();
+        static void printLex(const std::string & fileName);
     private:
         // 不停的得到下一个Token
         std::tuple<Token,std::string> next();
