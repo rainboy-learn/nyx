@@ -173,3 +173,7 @@ void Parser::printLex(const std::string & fileName){
       if( token == Token::TK_EOF) break;
     }
 }
+
+std::tuple<int,int> Parser::getNowParsePos() const{
+    return std::make_tuple(line,column);
+}

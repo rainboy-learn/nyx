@@ -94,9 +94,12 @@ class Parser {
     public:
         //输出lex 用于调试
         static void printLex(const std::string & fileName);
-    private:
+        
+        std::tuple<int,int> getNowParsePos() const;
+
         // 不停的得到下一个Token
         std::tuple<Token,std::string> next();
+    private:
 
         //关键字
         std::unordered_map<std::string,Token> keywords ;
