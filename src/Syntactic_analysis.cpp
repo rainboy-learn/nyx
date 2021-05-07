@@ -1,6 +1,6 @@
-#include "Syntactic_analysis.h"
-#include "Ast.h"
 #include <cassert>
+
+#include "Syntactic_analysis.h"
 
 auto  Syntactic_analysis::getCurrentToken(){
     //return currentToken.get<0>() ;
